@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>GETTING START</title>
+  <link href='http://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+</head>
+
+<body>
+<style>
+
+#logo{
+  font-family: 'Montserrat', sans-serif;
+  font-size:50px;
+  margin-top:20px;
+  margin-left:30px;
+  color:#ff7900;
+  font-weight:bold;
+  text-shadow:0 5px 10px #808080;
+}
+
+
+
+#menu{
+  background-color:#aaaaaa;
+  font-family: 'Raleway', sans-serif;
+  margin-left: 360px;
+  margin-top:30px;
+}
+
+.bar{
+  background-color:#808080;
+  color:white;
+  text-decoration:none;
+  display:block;
+  float:left;
+  padding:20px;
+  margin-top:15px;
+
+}
+
+.bar:hover{
+  background-color:#ff7900;
+}
+
+.clearfix:after{
+  visibility:hidden;
+  display:block;
+  content: " ";
+  clear:both;
+  height:0;
+  font-size:0;
+}
+
+
+
+p{
+  font-family: 'Raleway', sans-serif;
+  margin-top:100px;
+  font-size:25px;
+  margin-right:40px;
+}
+
+#desc{
+  background-color:#FFEFD5;
+  margin-top:140px;
+  height:400px;
+  margin-right:45px;
+  margin-left:45px;
+}
+
+#container{
+  background-color:#B0E0E6;
+  margin-top:60px;
+  height:700px;
+  margin-right:45px;
+  margin-left:45px;
+}
+
+h1{
+  font-family: 'Raleway', sans-serif;
+  margin-left:40px;
+}
+
+.text{
+  margin-top:20px;
+  margin-left:40px;
+}
+.text1{
+  margin-top:20px;
+  margin-left:40px;
+  font-family: 'Raleway', sans-serif;
+  font-size:25px;
+}
+
+#link:visited{
+  color:blue;
+}
+
+#code{
+  width:1260px;
+  height:40px;
+  background-color:#A9A9A9;
+  font-family: 'Raleway', sans-serif;
+  margin-left:40px;
+
+}
+
+
+</style>
+
+<div id="logo"> JUST LEARN </div>
+<nav id= "menu">
+  <a href="intro.html" class="bar"> INTRO </a>
+  <a href="websocket.html" class="bar"> GETTING START </a>
+  <a href="client.html" class="bar"> CLIENT </a>
+  <a href="server.html" class="bar"> SERVER </a>
+  <a href="styling.html" class="bar"> STYLING </a>
+  <a href="github.html" class="bar"> GIT / GITHUB </a>
+  <a href="testing.html" class="bar"> TESTING</a>
+  <a href="hosting.html" class="bar"> HOSTING ON SERVER</a>
+</nav>
+
+
+<div id="desc">
+  <br>
+  <h1>Start this shit</h1>
+  <p class="text">
+    In order to create this ChatApp, we need to get you set-up with a few things first. <br>You must ensure the following are set-up:
+    <ul class="text1">
+      <li >node</li>
+      <li>npm and web sockets</li>
+      <li>package.json</li>
+    </ul>
+    <p class="text">Should your inabilities hinder you from installing these two items properly, please stop and turn off the computer.
+    All hope has been lost, otherwise please proceed on reading.<br></p>
+  </p>
+</div>
+
+<div id="container">
+  <br>
+  <h1>Node</h1>
+
+    <p class="text">
+      Node.js is an open source, cross-platform runtime environment for server-side and networking applications. <br>
+      Node.js applications are written in JavaScript, and can be run within the Node.js runtime on OS X, Microsoft Windows,
+      Linux and FreeBSD.
+      To install Node, please go to <a id="link" href="http://nodejs.org/">Node Installation</a>.
+    </p>
+
+   <br>
+  <h1>NPM and Websockets</h1>
+
+    <p class="text">
+      Npm is a package manager for javascript, and the nodejs package includes both node and npm executables. Npm runs
+      through the command line and manages dependencies for an application. In your command line or terminal type in the following:<br>
+    </p>
+      <div id="code">
+        <p class="text"><code>-npm install ws -g</code></p>
+      </div>
+
+    <p class="text">
+    Web sockets is an advanced technology that makes it possible to open an interactive communication session between the user's browser and a server.
+    They're great for instant transfers of data from one machine to one or many other connected clients, used in things like instant chats, collaborative sketch environments and many
+    more. ws is a node.js websocket implementation.</br>
+    </p>
+</div>
+
+</body>
+
+
+</html>

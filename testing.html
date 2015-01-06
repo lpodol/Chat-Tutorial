@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>TESTING</title>
+  <link href='http://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+</head>
+
+<body>
+<style>
+
+#logo{
+  font-family: 'Montserrat', sans-serif;
+  font-size:50px;
+  margin-top:20px;
+  margin-left:30px;
+  color:#ff7900;
+  font-weight:bold;
+  text-shadow:0 5px 10px #808080;
+}
+
+
+
+#menu{
+  background-color:#aaaaaa;
+  font-family: 'Raleway', sans-serif;
+  margin-left: 360px;
+  margin-top:30px;
+}
+
+.bar{
+  background-color:#808080;
+  color:white;
+  text-decoration:none;
+  display:block;
+  float:left;
+  padding:20px;
+  margin-top:15px;
+
+}
+
+.bar:hover{
+  background-color:#ff7900;
+}
+
+.clearfix:after{
+  visibility:hidden;
+  display:block;
+  content: " ";
+  clear:both;
+  height:0;
+  font-size:0;
+}
+
+
+p{
+  font-family: 'Raleway', sans-serif;
+  margin-top:100px;
+  font-size:25px;
+  margin-right:40px;
+}
+
+.code{
+  width:1260px;
+  height:40px;
+  background-color:#A9A9A9;
+  font-family: 'Raleway', sans-serif;
+  margin-left:40px;
+
+}
+
+#desc{
+  background-color:#FFEFD5;
+  margin-top:140px;
+  height:1300px;
+  margin-right:45px;
+  margin-left:45px;
+}
+
+
+
+h1{
+  font-family: 'Raleway', sans-serif;
+  margin-left:40px;
+}
+
+.text{
+  margin-top:20px;
+  margin-left:40px;
+}
+
+.list{
+  font-family: 'Raleway', sans-serif;
+  margin-left:40px;
+  font-size:25px;
+}
+
+h2{
+  font-family: 'Raleway', sans-serif;
+  margin-left:40px;
+  font-size:30px;
+}
+.link:visited{
+  color:blue;
+}
+
+
+</style>
+
+<div id="logo"> JUST LEARN </div>
+<nav id= "menu">
+  <a href="intro.html" class="bar"> INTRO </a>
+  <a href="websocket.html" class="bar"> GETTING START </a>
+  <a href="client.html" class="bar"> CLIENT </a>
+  <a href="server.html" class="bar"> SERVER </a>
+  <a href="styling.html" class="bar"> STYLING </a>
+  <a href="github.html" class="bar"> GIT / GITHUB </a>
+  <a href="testing.html" class="bar"> TESTING</a>
+  <a href="hosting.html" class="bar"> HOSTING ON SERVER</a>
+</nav>
+
+<div id="desc">
+  <br>
+  <h1>Test Your Server</h1>
+
+  <p class="text">
+    Now that you have a potentially working ChatApp, you can proceed to test it.
+    Prior to this you have installed "ws" from the Node Package Manager. If you haven't installed this,
+    then please go back to the Getting Started section to install it.
+  </p>
+  <br>
+
+  <h2>Host on Local Server</h2>
+  <p class="text">
+    We are going to run the server locally on the command line. To access the command line,
+    reference the 'Finding Command Line' section of the <a class="link" href = "http://www.davidbaumgold.com/tutorials/command-line/">Getting to Know the Command Line tutorial</a>
+    Next, change to directory to where the server file is stored.
+    Proceed to launch your server by typing in the following in the command line:
+  </p>
+  <div class="code">
+    <p class="text">
+    <code>
+      wscat -l 3000
+    </code>
+  </p>
+  </div>
+  <p class="text">
+  This will allow the terminal to act as the server for a client to connect. Note that 3000 refers to the port number,
+  so if you used a different number, be sure to replace 3000 with that number when typing the command.
+ </p>
+ <br>
+
+  <h2>Client Connect</h2>
+  <p class="text">
+  Now that the server is working, you can connect through your browser by simply
+  connecting to the port by entering the following in your address bar:
+</p>
+  <div class="code">
+    <p class="text">
+    <code>
+      localhost:3000
+    </code>
+  </p>
+  </div>
+  <br>
+  <p class="text">
+    This allows you to connect locally through your browser based on the specified port. If
+    the port you selected is not 3000, simply change the port number. Now that your Chat App is running in
+    the browser, you can test the functionality by inputting text.
+  </br>
+  If the Chat App is not functioning properly, here are some troubleshooting tips:
+</br>
+<ul class="list">
+  <li>
+    browser console: you can use your browser console to check for errors. To access your browser console,
+    check out: <a class="link" href = "http://wickedlysmart.com/hfjsconsole/">Using the browser console</a>
+  </li>
+  <li>
+    <code>console.log</code>: you can leverage <code>console.log</code> as needed within your code to better
+    understand what is happening. If you use <code>console.log</code> in your client code, the results will appear in your
+    browser console. If you use <code>console.log</code> in your server code, the results will appear in your command line program.
+  </li>
+</ul>
+</div>
+
+</body>
+
+
+</html>

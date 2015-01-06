@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>HOSTING ON SERVER</title>
+  <link href='http://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+</head>
+
+<body>
+<style>
+
+#logo{
+  font-family: 'Montserrat', sans-serif;
+  font-size:50px;
+  margin-top:20px;
+  margin-left:30px;
+  color:#ff7900;
+  font-weight:bold;
+  text-shadow:0 5px 10px #808080;
+}
+
+
+
+#menu{
+  background-color:#aaaaaa;
+  font-family: 'Raleway', sans-serif;
+  margin-left: 360px;
+  margin-top:30px;
+}
+
+.bar{
+  background-color:#808080;
+  color:white;
+  text-decoration:none;
+  display:block;
+  float:left;
+  padding:20px;
+  margin-top:15px;
+
+}
+
+.bar:hover{
+  background-color:#ff7900;
+}
+
+.clearfix:after{
+  visibility:hidden;
+  display:block;
+  content: " ";
+  clear:both;
+  height:0;
+  font-size:0;
+}
+
+
+p{
+  font-family: 'Raleway', sans-serif;
+  margin-top:100px;
+  font-size:25px;
+  margin-right:40px;
+}
+
+.code{
+  width:1260px;
+  height:50px;
+  background-color:#A9A9A9;
+  font-family: 'Raleway', sans-serif;
+  margin-left:40px;
+
+}
+
+#desc{
+  background-color:#FFEFD5;
+  margin-top:140px;
+  height:1100px;
+  margin-right:45px;
+  margin-left:45px;
+}
+
+
+
+h1{
+  font-family: 'Raleway', sans-serif;
+  margin-left:40px;
+}
+
+.text{
+  margin-top:20px;
+  margin-left:40px;
+}
+
+.list{
+  font-family: 'Raleway', sans-serif;
+  margin-left:40px;
+  font-size:25px;
+}
+
+h2{
+  font-family: 'Raleway', sans-serif;
+  margin-left:40px;
+  font-size:30px;
+}
+.link:visited{
+  color:blue;
+}
+
+
+</style>
+
+<div id="logo"> JUST LEARN </div>
+<nav id= "menu">
+  <a href="intro.html" class="bar"> INTRO </a>
+  <a href="websocket.html" class="bar"> GETTING START </a>
+  <a href="client.html" class="bar"> CLIENT </a>
+  <a href="server.html" class="bar"> SERVER </a>
+  <a href="styling.html" class="bar"> STYLING </a>
+  <a href="github.html" class="bar"> GIT / GITHUB </a>
+  <a href="testing.html" class="bar"> TESTING</a>
+  <a href="hosting.html" class="bar"> HOSTING ON SERVER</a>
+</nav>
+
+
+<div id="desc">
+  <br>
+  <h2>Host Live on Digital Ocean</h2>
+  <br>
+  <p class="text">
+    When you're ready to actually launch the site onto the web after the tests, you
+    can do it through Digital Ocean. Similar to hosting on a local server through the
+    terminal, you will Secure Shell into digital ocean. Secure Shell or "SSH" is the
+    protocol to cryptographic network protocol for secure data communication,
+    remote command-line login, remote command execution, and other secure network
+    services between two networked computers.
+    <br></br>
+    Start pushing everything to github then by going to your terminal, you will then type in:
+  </p>
+    <div class="code">
+      <p class="text">
+      <code>ssh root@YOURNAME.princesspeach.nyc</code>
+    </p>
+    </div>
+    <br>
+    <p class="text">
+    Once you are connected, proceed to clone all the items you pushed to git in regards
+    to your ChatApp by typing in:
+  </p>
+    <br></br>
+    <div class="code">
+      <p class="text">
+      <code>git clone</code>
+    </p>
+    </div>
+    <br>
+    <p class="text">
+    This must be done while inside the root of your Digital Ocean Server. Proceed into
+    the folder containing your ChatApp. You must then install the node package manager
+    by typing in <code>npm install</code> install onto the Digital Ocean server.
+    <br></br>
+    To start your server on Digital Ocean type in <code>node servername.js</code>. This will
+    turn your Digital Ocean box into a server.
+    <br></br>
+    Then open another terminal and like before you must ssh into Digital Ocean, when you
+    connect to the root run <code>http-server</code> so you may access your ChatApp live
+    at http://thename.princesspeach.nyc.
+  </p>
+
+</div>
+
+</body>
+
+
+</html>

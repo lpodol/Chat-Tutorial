@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>CLIENT</title>
+  <link href='http://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+</head>
+
+<body>
+<style>
+
+#logo{
+  font-family: 'Montserrat', sans-serif;
+  font-size:50px;
+  margin-top:20px;
+  margin-left:30px;
+  color:#ff7900;
+  font-weight:bold;
+  text-shadow:0 5px 10px #808080;
+}
+
+
+
+#menu{
+  background-color:#aaaaaa;
+  font-family: 'Raleway', sans-serif;
+  margin-left: 360px;
+  margin-top:30px;
+}
+
+.bar{
+  background-color:#808080;
+  color:white;
+  text-decoration:none;
+  display:block;
+  float:left;
+  padding:20px;
+  margin-top:15px;
+
+}
+
+.bar:hover{
+  background-color:#ff7900;
+}
+
+.clearfix:after{
+  visibility:hidden;
+  display:block;
+  content: " ";
+  clear:both;
+  height:0;
+  font-size:0;
+}
+
+
+
+p{
+  font-family: 'Raleway', sans-serif;
+  margin-top:100px;
+  font-size:25px;
+  margin-right:40px;
+}
+
+.code{
+  width:1260px;
+  height:150px;
+  background-color:#A9A9A9;
+  font-family: 'Raleway', sans-serif;
+  margin-left:40px;
+}
+
+.code1{
+  width:1260px;
+  height:300px;
+  background-color:#A9A9A9;
+  font-family: 'Raleway', sans-serif;
+  margin-left:40px;
+}
+.code2{
+  width:1260px;
+  height:400px;
+  background-color:#A9A9A9;
+  font-family: 'Raleway', sans-serif;
+  margin-left:40px;
+}
+
+#desc{
+  background-color:#FFEFD5;
+  margin-top:140px;
+  height:4200px;
+  margin-right:45px;
+  margin-left:45px;
+}
+
+
+
+h1{
+  font-family: 'Raleway', sans-serif;
+  margin-left:40px;
+}
+
+.text{
+  margin-top:20px;
+  margin-left:40px;
+}
+
+.list{
+  font-family: 'Raleway', sans-serif;
+  margin-left:40px;
+  font-size:25px;
+}
+
+h2{
+  font-family: 'Raleway', sans-serif;
+  margin-left:40px;
+  font-size:30px;
+}
+
+.link:visited{
+ color:blue;
+}
+
+</style>
+
+<div id="logo"> JUST LEARN </div>
+<nav id= "menu">
+  <a href="intro.html" class="bar"> INTRO </a>
+  <a href="websocket.html" class="bar"> GETTING START </a>
+  <a href="client.html" class="bar"> CLIENT </a>
+  <a href="server.html" class="bar"> SERVER </a>
+  <a href="styling.html" class="bar"> STYLING </a>
+  <a href="github.html" class="bar"> GIT / GITHUB </a>
+  <a href="testing.html" class="bar"> TESTING</a>
+  <a href="hosting.html" class="bar"> HOSTING ON SERVER</a>
+</nav>
+
+
+<div id="desc">
+  <br>
+
+  <h1>Client Side Server</h1>
+  <p class="text">
+    Please read the code carefully, as typos are YOUR problem and YOU, YOURSELF
+    are the SOLE REASON for the failure of the Application. To begin you will need
+    the web socket constructor to "require" the "ws"(web socket) package. Then
+    you will create a new instance of the web socket to a port of YOUR
+    choosing (I'll help you out, let's choose port: 3000). The following:</br>
+    <div class="code">
+      <p class="text">
+        <code>
+          var WebSocket = require("ws");</br>
+          var ws = new WebSocket("ws://localhost:3000");
+        </code>
+      </p>
+    </div>
+    <br>
+    <br>
+    <p class="text">The logic to this is to:</p></br>
+
+    <ul class="list">
+      <li>Connect to the web socket server</li>
+      <li>Listen for messages from the server and render them in the Chat App</li>
+      <li>Send messages to the server by hitting the return key</li>
+    </ul>
+    <br>
+    <br>
+    <h2>Client connects to server!</h2>
+    <p class="text">
+      Now that we have the web socket set up on port 3000,
+      we want to add an event listener so that we can take specific actions as
+      soon as the web socket is open - for example: prompt the user for information,
+      listen for messages from the server, and send new messages to the server. This will
+      allow us to capture the data and manipulate it.</P>
+
+      <div class="code">
+        <p class="text">
+        <code>
+          ws.addEventListener("open", function(evt){</br>
+            console.log("connected!");</br>
+          });
+        </code>
+      </P>
+      </div>
+    </br>
+    <p class="text">
+    In this code, when the web socket opens or connects to the server, the event("evt" in the function)
+    will be passed into the function, which in turn will log "connected" in your console
+    for a successful connection to the server.
+  </p>
+  <br>
+
+  <h2>You have Messages!</h2>
+  <p class="text">
+    We have an event listener established for when the web socket is opened; however, we want to be able to do more with our Chat App. Let's add an event listener to listen for messages from the server. Remember: every connected client is sending messages to the server, and the server then sends those messages back out to every connected client.
+    <div class="code">
+      <p class="text">
+      <code>
+        ws.addEventListener("message", function(servermsg){</br>
+        </br>
+        //do something</br>
+      </br>
+    });
+  </code>
+</p>
+</div>
+</br>
+<p class="text">
+Now that we're listening for messages, let's have the function take action on the servermsg:
+</p>
+<div class = "code1">
+  <p class="text">
+  <code>
+    ws.addEventListener("message", function(servermsg){</br>
+    </br>
+    var msg = JSON.parse(servermsg)</br>
+    var newli = document.createElement("li");</br>
+    var printMessage = msg.name + ":" + msg.newMessage;</br>
+    newli.innerHTML = printMessage;</br>
+    var ul = document.querySelector("ul");
+    ul.appendChild(newli);</br>
+  </br>
+});
+</code>
+</p>
+</div>
+</br>
+<p class="text">
+Let's talk through everything we're doing in the above function. Remember JSON (JavaScript Object Notation)
+that we mentioned in the Getting Started section? We're going to use that here. Before we do anything with
+the message received from the server, we need to parse the string received as JSON to get the value of that
+string. For more information on JSON, check out: <a class="link" href = "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON">MDN: JSON Summary</a>
+<br></br>
+Now that we have what we need from the server message, we need to render that message in the Chat App. We
+start by creating a new HTML element - in this case, a list (or li) element. We'd also like to have our
+message show up with the username, so that we know who is saying what. Since the server message we received
+is an object with key value pairs, we're going to use the name key to get the name value, and the newMessage key
+to get the message value. If this seems a little confusing - don't worry, it will make more sense when we
+start sending messages to the server in the next section.
+<br></br>
+Although we've created the list element, we have not given it anything to display. We'll use the innerHTML
+property to set it equal to the printMessage we just created. Lastly, we want to make sure this new list
+element gets added to the unordered list. First we need to grab the unordered list element, so that we can
+take action on it. Then, we use the appendChild() method to append the list element to
+the bottom of the list.
+<br></br>
+To keep things simple, we're not going into great detail here on the background behind creating elements,
+selecting them, etc. However, we're able to do this because of the DOM (or Document Object Model). For more
+information, check out: <a class="link" href = "https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model/Introduction">MDN: DOM Intro</a>
+</p>
+<br>
+<h2>Let's send some messages!</h2>
+<p class="text">
+  While it's great that we can now render messages that we receive from the server - it's kind of important
+  that connected clients be able to send messages to the server - otherwise, we won't have much to render.
+  So we're going to listen for when the user presses the enter key after entering something in the input textbox:
+</p>
+  <div class="code1">
+    <p class="text">
+    <code>
+      input.addEventListener("keypress", function(evt){</br>
+      </br>
+      if (evt.keyCode === 13) {</br>
+        //do something</br>
+      }</br>
+    </br>
+  });
+</code>
+</p>
+</div>
+</br>
+<p class="text">
+The addEventListener syntax should look familiar by now; however, in this case we're listening for a keypress.
+Lucky for us, there are key codes associated with the keys on our keyboard, and the code for the return button
+is 13. So we set up an if statement to only take action when that specific button is pressed. Now let's specify
+what we want that action to be:
+</p>
+<br>
+<div class = "code2">
+  <p class="text">
+  <code>
+    input.addEventListener("keypress", function(evt){</br>
+    </br>
+    if (evt.keyCode === 13) {</br>
+      var inputStr = document.querySelector("#input");</br>
+      var userMessage = {name: userName, newMessage: inputStr.value};</br>
+      var clientmsg = JSON.stringify(userMessage);</br>
+      ws.send(clientmsg);</br>
+      input.value = " ";</br>
+    }</br>
+  </br>
+});
+</code>
+</p>
+</div>
+<br>
+<p class="text">
+Ok - there's a lot going on here. Let's talk through it. First, we want to grab whatever the user entered into
+the input box using querySelector. Next, we create a message object - which includes the userName requested
+when the user originally connected, and the value of the input that we just grabbed. Next, we use our trusty
+JSON again to turn this object into a string that we can send to the server using the stringify() method.
+Then, we just need to call the send method to pass along the client message to the server, and reset our input
+value to an empty string.
+Sweet! That was a lot. If you want more information on objects, check out: <a class="link" href = "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">MDN : Object Summary</a>
+</p>
+
+</div>
+</body>
+
+
+</html>

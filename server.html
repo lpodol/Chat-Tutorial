@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>SERVER</title>
+  <link href='http://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+</head>
+
+<body>
+<style>
+
+#logo{
+  font-family: 'Montserrat', sans-serif;
+  font-size:50px;
+  margin-top:20px;
+  margin-left:30px;
+  color:#ff7900;
+  font-weight:bold;
+  text-shadow:0 5px 10px #808080;
+}
+
+
+
+#menu{
+  background-color:#aaaaaa;
+  font-family: 'Raleway', sans-serif;
+  margin-left: 360px;
+  margin-top:30px;
+}
+
+.bar{
+  background-color:#808080;
+  color:white;
+  text-decoration:none;
+  display:block;
+  float:left;
+  padding:20px;
+  margin-top:15px;
+
+}
+
+.bar:hover{
+  background-color:#ff7900;
+}
+
+.clearfix:after{
+  visibility:hidden;
+  display:block;
+  content: " ";
+  clear:both;
+  height:0;
+  font-size:0;
+}
+
+
+
+p{
+  font-family: 'Raleway', sans-serif;
+  margin-top:100px;
+  font-size:25px;
+  margin-right:40px;
+}
+
+.code{
+  width:1260px;
+  height:90px;
+  background-color:#A9A9A9;
+  font-family: 'Raleway', sans-serif;
+  margin-left:40px;
+
+}
+.code1{
+  width:1260px;
+  height:180px;
+  background-color:#A9A9A9;
+  font-family: 'Raleway', sans-serif;
+  margin-left:40px;
+}
+
+.code2{
+  width:1260px;
+  height:240px;
+  background-color:#A9A9A9;
+  font-family: 'Raleway', sans-serif;
+  margin-left:40px;
+}
+
+#desc{
+  background-color:#B0E0E6;
+  margin-top:140px;
+  height:400px;
+  margin-right:45px;
+  margin-left:45px;
+}
+
+#container{
+  background-color:#B0E0E6;
+  margin-top:60px;
+  height:3550px;
+  margin-right:45px;
+  margin-left:45px;
+}
+
+h1{
+  font-family: 'Raleway', sans-serif;
+  margin-left:40px;
+}
+
+.text{
+  margin-top:20px;
+  margin-left:40px;
+}
+
+.list{
+  font-family: 'Raleway', sans-serif;
+  margin-left:40px;
+  font-size:25px;
+}
+
+h2{
+  font-family: 'Raleway', sans-serif;
+  margin-left:40px;
+  font-size:30px;
+}
+.link:visited{
+  color:blue;
+}
+
+
+</style>
+
+<div id="logo"> JUST LEARN </div>
+<nav id= "menu">
+  <a href="intro.html" class="bar"> INTRO </a>
+  <a href="websocket.html" class="bar"> GETTING START </a>
+  <a href="client.html" class="bar"> CLIENT </a>
+  <a href="server.html" class="bar"> SERVER </a>
+  <a href="styling.html" class="bar"> STYLING </a>
+  <a href="github.html" class="bar"> GIT / GITHUB </a>
+  <a href="testing.html" class="bar"> TESTING</a>
+  <a href="hosting.html" class="bar"> HOSTING ON SERVER</a>
+</nav>
+
+
+<div id="desc">
+  <br>
+  <h1>Serving it up</h1>
+  <p class="text">
+    In order to create the server, we need to take the following steps:
+  </p>
+    <ul class="list">
+      <li>Create a web socket server and listen to a specific port</li>
+      <li>Listen for connections</li>
+      <li>Take specific action on connections</li>
+    </ul>
+    <p class="text">
+    Let's see what you got, fool!<br>
+  </p>
+</div>
+
+<div id = "container">
+ <br>
+  <h2>Create server and listen...</h2>
+
+  <p class="text">
+    First, we will create a constructor that requires the websocket package (which we previously installed in the Getting Started section). Then, we will specify the port to listen on:</br>
+  </p>
+    <div class = "code">
+      <p class="text">
+      <code>
+        var wss = require("ws").Server;</br>
+        var server = new wss({port:3000});
+      </code>
+    </p>
+    </div>
+  </br>
+  <p class="text">
+  We're also going to create some additional variables - two empty arrays (we'll explain more about why these are needed in step 3):
+  </p>
+
+  <div class = "code">
+  <p class="text">
+  <code>
+    var clients = [];<br>
+    var history = [];
+  </code>
+</p>
+</div>
+
+<p class="text">
+For more information on arrays - check out: <a class="link" href = "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">MDN: Array Summary</a>
+</p>
+
+<br>
+<br>
+
+<h2>Listen some more...but this time for connections.</h2>
+
+<p class="text">
+  Now that we have the server set up to listen on port 3000, we want to listen for client connections, so that we can then do something on those connections.
+</p>
+  <div class = "code1">
+    <p class="text">
+    <code>
+      server.on("connection", function(ws){</br>
+      </br>
+      //do something</br>
+    </br>
+  });
+</code>
+</p>
+</div>
+
+<br>
+<br>
+<h2>Enough listening...Let's do something!</h2>
+
+<p class="text">
+  Now that we have our server listening for client connections, let's tell the function what to do.
+  Remember our empty arrays?
+  Well, we set up the <code>var clients</code> array so that we can store the client connections, as it will be important to keep track of the clients that are connected.
+    In order to store this information, we need to push it to that empty client array we created using the push method:</p>
+  <div class = "code">
+    <p class="text">
+    <code>
+      clients.push(ws);</br>
+    </code>
+  </p>
+  </div>
+</br>
+<p class="text">
+So now we have all the client connections stored in the <code>var clients</code> array! However, we also want to monitor when clients disconnect so we can remove them from the array.
+In order to do this, we will have the web socket take action on closes. (Please note that this uses syntax similar to what we did to take action on "connection"):
+</p>
+<div class = "code1">
+  <p class="text">
+<code>
+  ws.on("close", function() {</br>
+  </br>
+  var x = clients.indexOf(ws);</br>
+  clients.splice(x,1);</br>
+});</br>
+</code>
+</p>
+</div>
+
+</br>
+<p class="text">
+  Here, we're saying that when the connection closes, we'll look for the index of the disconnecting client in the client array using the handy <code>indexOf()</code> method, and set a variable, in this case <code>var x</code>, equal to that value.
+  Now we've identified and singled out the one particular client we need to remove. Next, we use the <code>splice()</code> method to remove that client from the array by giving it two values. The first value references the index number we previously identified, while the second
+  defines the number of elements we need to remove from the array. In this case, we only want to remove one client, so the second value is 1. For more details on these two methods, check out: <a class="link" href = "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">MDN: Array Summary</a>
+</br>
+As for the history array, we can use it to send chat histories to new connections.
+Since we only want to send a chat history to a user if the history array actually contains some messages (meaning the user has already been on the chat site), we'll create an if statement that only takes action if the length of the array is greater than 0:
+</p>
+<div class = "code1">
+  <p class="text">
+  <code>
+    if (history.length > 0) {</br>
+    </br>
+    //do something</br>
+}</br>
+</code>
+</p>
+</div>
+</br>
+<p class="text">
+For more information on if statements, check out: <a class="link" href = "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/if...else">MDN: If...Else Summary</a>
+</br>
+Now that we have our if statement set up, we want to take action (i.e. send the message) on each element within the history array using the <code>forEach()</code> method:
+</p>
+<div class = "code2">
+  <p class="text">
+  <code>
+    if (history.length > 0) {</br>
+    </br>
+    history.forEach(function (msgs) {</br>
+      ws.send(msgs);</br>
+    })</br>
+}
+</code>
+</p>
+</div>
+<p class="text">
+For more information on forEach method, check out: <a class="link" href = "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach">MDN: forEach Summary</a>
+</br>
+Next, we want to take action upon receiving messages from the connected clients - the syntax should start to look familiar:
+</p>
+<div class = "code1">
+  <p class="text">
+  <code>
+    ws.on("message", function(msg) {</br>
+    </br>
+    //do something</br>
+})</br>
+</code>
+</p>
+</div>
+
+<p class="text">
+Now let's define what we want the server to do when it receives messages:
+</p>
+
+<div class = "code2">
+  <p class="text">
+  <code>
+    ws.on("message", function(msg) {</br>
+    </br>
+    history.push(msg);</br>
+    clients.forEach(function (elem) {</br>
+      elem.send(msg);</br>
+      console.log(msg);</br>
+    })</br>
+})</br>
+</code>
+</p>
+</div>
+<p class="text">
+  Let's walk through each component of this function: First, it takes the message that it receives (<code>var msg</code>)
+  and pushes it to the history array, ensuring that each new message is added to the array. Next, the function uses the <code>forEach()</code> method on the clients array to send each connected client the new message received. Lastly, we <code>console.log</code> each message to the server. (This will help in testing the server side later).
+</br>
+</br>
+Well, that's all she wrote folks! After completing these steps, you will have a functioning server, unless you did something wrong, in which case it's not our fault. Sorry, sucker!
+</p>
+</div>
+    </body>
+
+
+    </html>
